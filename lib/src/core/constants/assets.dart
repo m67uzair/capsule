@@ -27,4 +27,8 @@ class ImgAssets {
   static const String questionImg = '${assets}question-img.png';
   static const String optionImg = '${assets}option-img.png';
   static const String solutionImg = '${assets}solution-img.png';
+  static const String timer = '${assets}timer.png';
+  static const String pause = '${assets}pause-circle.png';
+  static const String more = '${assets}more.png';
+  static const String arrowCircleRight = '${assets}arrow-circle-right.png';
 }

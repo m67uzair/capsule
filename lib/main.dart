@@ -6,6 +6,7 @@ import 'package:capsule/src/features/auth/signup/signup_binding.dart';
 import 'package:capsule/src/features/home/home/home_binding.dart';
 import 'package:capsule/src/features/home/navbar/navbar.dart';
 import 'package:capsule/src/features/home/navbar/navbar_binding.dart';
+import 'package:capsule/src/features/quiz/quiz_binding.dart';
 import 'package:capsule/src/features/resullt_analysis/result_analysis_binding.dart';
 import 'package:capsule/src/features/review_answere/review_answer_binding.dart';
 import 'package:flutter/material.dart';
@@ -40,9 +41,9 @@ class MyApp extends StatelessWidget {
             ),
           debugShowCheckedModeBanner: false,
           smartManagement: SmartManagement.full,
-          initialRoute: AppRoutes.getReviewAnswerRoute(),
+          initialRoute: AppRoutes.getQuizRoute(),
           // !firstLogin ? AppRoutes.getLoginRoute() : AppRoutes.getIntroRoute(),
-          initialBinding: ReviewAnswerBinding(),
+          initialBinding: QuizBinding(),
           // !firstLogin ? LoginBinding() : IntroBinding(),
           getPages: AppRoutes.getPages(),
           onGenerateRoute: (settings) => AppRoutes.generateRoute(settings),

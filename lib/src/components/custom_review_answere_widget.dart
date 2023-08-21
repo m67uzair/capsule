@@ -1,4 +1,4 @@
-import 'package:capsule/src/components/custom_mcq_option_screen.dart';
+import 'package:capsule/src/components/custom_mcq_option.dart';
 import 'package:capsule/src/components/custom_rectangle_icon_button.dart';
 import 'package:capsule/src/components/custom_solution_tile.dart';
 import 'package:capsule/src/components/custom_textTwo.dart';

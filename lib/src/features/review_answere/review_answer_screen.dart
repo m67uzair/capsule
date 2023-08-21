@@ -1,7 +1,5 @@
 import 'package:capsule/src/components/custom_appbar.dart';
 import 'package:capsule/src/components/custom_color_code_Indicator.dart';
-import 'package:capsule/src/components/custom_container.dart';
-import 'package:capsule/src/components/custom_divider.dart';
 import 'package:capsule/src/components/custom_review_answere_widget.dart';
 import 'package:capsule/src/core/constants/assets.dart';
 import 'package:capsule/src/core/constants/dimensions.dart';
@@ -12,8 +10,6 @@ import 'package:capsule/src/features/review_answere/review_answer_controller.dar
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-
-import '../../components/custom_textTwo.dart';
 
 class ReviewAnswerScreen extends GetView<ReviewAnswerController> {
   ReviewAnswerScreen({Key? key}) : super(key: key);
