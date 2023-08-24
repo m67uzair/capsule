@@ -31,4 +31,9 @@ class ImgAssets {
   static const String pause = '${assets}pause-circle.png';
   static const String more = '${assets}more.png';
   static const String arrowCircleRight = '${assets}arrow-circle-right.png';
+  static const String customTest = '${assets}custom-test.png';
+  static const String mockTest = '${assets}mock-test.png';
+  static const String mockTestBig = '${assets}mock-test-big.png';
+  static const String closCircle = '${assets}close-circle.png';
+  static const String edit = '${assets}edit.png';
 }

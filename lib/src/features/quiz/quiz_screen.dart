@@ -1,9 +1,8 @@
-import 'package:capsule/src/components/custom_divider.dart';
 import 'package:capsule/src/components/custom_mcq_option.dart';
-import 'package:capsule/src/components/custom_rectangle_icon_button.dart';
 import 'package:capsule/src/components/custom_solution_tile.dart';
 import 'package:capsule/src/components/custom_textTwo.dart';
-import 'package:capsule/src/components/custom_text_button.dart';
+import 'package:capsule/src/components/custom_text_button_2.dart';
+import 'package:capsule/src/components/custom_text_circle.dart';
 import 'package:capsule/src/core/constants/assets.dart';
 import 'package:capsule/src/core/constants/dimensions.dart';
 import 'package:capsule/src/core/constants/font_weight.dart';
@@ -18,28 +17,7 @@ class QuizScreen extends GetView<QuizController> {
 
   @override
   Widget build(BuildContext context) {
-    List<EasyStep> stepperData = controller.questionsDetails.map<EasyStep>((question) {
-      int stepIndex = controller.questionsDetails.indexOf(question);
-      StepColorState stepColor = question['stepColorState'];
-
-      Color stepColorValue = Colors.grey;
-      if (stepColor == StepColorState.Green) {
-        stepColorValue = Colors.green;
-      } else if (stepColor == StepColorState.Red) {
-        stepColorValue = Colors.red;
-      }
-
-      return EasyStep(
-        customStep: Center(
-          child: CustomText(
-            text: (stepIndex + 1).toString(),
-            fontWeight: fontWeight600,
-            fontSize: font_17,
-            textColor: controller.currentStep >= stepIndex ? AppColors.white : AppColors.blueGrade2,
-          ),
-        ),
-      );
-    }).toList();
+    List<EasyStep> stepperData = _getStepperData();
 
     return Scaffold(
       body: Container(
@@ -96,23 +74,7 @@ class QuizScreen extends GetView<QuizController> {
                       ],
                     ),
                   ),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.symmetric(horizontal: margin_20, vertical: margin_15),
-                      backgroundColor: AppColors.blueGrade2,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(
-                        Radius.circular(radius_25),
-                      )),
-                    ),
-                    onPressed: () {},
-                    child: CustomText(
-                      text: 'End',
-                      textColor: AppColors.white,
-                      fontWeight: fontWeight600,
-                      fontSize: font_17,
-                    ),
-                  )
+                  CustomTextButton2(title: 'End', onPressed: () {}),
                 ],
               ),
             ),
@@ -153,20 +115,39 @@ class QuizScreen extends GetView<QuizController> {
           ],
         ),
       ),
-      bottomSheet: Material(
-        elevation: 5,
+      bottomSheet: Container(
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.1),
+              spreadRadius: 3,
+              blurRadius: 4,
+              offset: Offset(0, 0), // changes the position of the shadow
+            ),
+          ],
+        ),
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: margin_15, vertical: margin_10),
+          decoration: BoxDecoration(
+            color: AppColors.white,
+            borderRadius: BorderRadius.vertical(top: Radius.circular(radius_10)),
+          ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              IconButton(
-                onPressed: () {
+              PopupMenuButton<String>(
+                onSelected: (value) {},
+                itemBuilder: (BuildContext context) {
+                  return {'Restart Exam', 'Report Question'}.map((String choice) {
+                    return PopupMenuItem<String>(
+                      value: choice,
+                      child: Text(choice),
+                    );
+                  }).toList();
                 },
-                icon: const Icon(Icons.more_vert),
               ),
               ElevatedButton(
-                  onPressed: (){
+                  onPressed: () {
                     print('button pressed');
                     controller.onNextPressed();
                   },
@@ -189,7 +170,9 @@ class QuizScreen extends GetView<QuizController> {
                         ImgAssets.arrowCircleRight,
                         color: AppColors.white,
                       ),
-                      SizedBox(width: width_5,),
+                      SizedBox(
+                        width: width_5,
+                      ),
                       CustomText(
                         text: 'Submit',
                         fontWeight: fontWeight600,
@@ -225,13 +208,23 @@ class QuizScreen extends GetView<QuizController> {
         shrinkWrap: true,
         // physics: const NeverScrollableScrollPhysics(),
         children: [
-          CustomText(
-            text: questionString,
-            fontWeight: fontWeight600,
-            fontSize: font_16,
-            textColor: AppColors.black,
-            maxLines: 3,
-            softwrap: true,
+          Row(
+            children: [
+              CustomTextCircle(
+                text: (controller.currentStep.value + 1).toString(),
+              ),
+              SizedBox(
+                width: width_5,
+              ),
+              CustomText(
+                text: questionString,
+                fontWeight: fontWeight600,
+                fontSize: font_16,
+                textColor: AppColors.black,
+                maxLines: 3,
+                softwrap: true,
+              ),
+            ],
           ),
           SizedBox(
             height: height_15,
@@ -241,7 +234,7 @@ class QuizScreen extends GetView<QuizController> {
               questionImg.toString(),
               width: width_240,
               height: height_240,
-              fit: BoxFit.cover,
+              fit: BoxFit.contain,
             )
           else
             const SizedBox.shrink(),
@@ -260,6 +253,114 @@ class QuizScreen extends GetView<QuizController> {
           SizedBox(
             height: height_25,
           ),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: margin_10, vertical: margin_10),
+            decoration: BoxDecoration(
+              shape: BoxShape.rectangle,
+              borderRadius: BorderRadius.all(
+                Radius.circular(radius_10),
+              ),
+              color: AppColors.pinkGrade2.withOpacity(0.20),
+            ),
+            child: Row(
+              children: [
+                const CustomTextCircle(
+                  text: 'A',
+                ),
+                SizedBox(width: width_5),
+                CustomText(
+                  text: optionA,
+                  fontWeight: fontWeight600,
+                  fontSize: font_16,
+                  textColor: AppColors.black,
+                )
+              ],
+            ),
+          ),
+          SizedBox(
+            height: height_10,
+          ),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: margin_10, vertical: margin_10),
+            decoration: BoxDecoration(
+              shape: BoxShape.rectangle,
+              borderRadius: BorderRadius.all(
+                Radius.circular(radius_10),
+              ),
+              color: AppColors.pinkGrade2.withOpacity(0.20),
+            ),
+            child: Row(
+              children: [
+                const CustomTextCircle(
+                  text: 'B',
+                ),
+                SizedBox(width: width_5),
+                CustomText(
+                  text: optionB,
+                  fontWeight: fontWeight600,
+                  fontSize: font_16,
+                  textColor: AppColors.black,
+                )
+              ],
+            ),
+          ),
+          SizedBox(
+            height: height_10,
+          ),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: margin_10, vertical: margin_10),
+            decoration: BoxDecoration(
+              shape: BoxShape.rectangle,
+              borderRadius: BorderRadius.all(
+                Radius.circular(radius_10),
+              ),
+              color: AppColors.pinkGrade2.withOpacity(0.20),
+            ),
+            child: Row(
+              children: [
+                const CustomTextCircle(
+                  text: 'C',
+                ),
+                SizedBox(width: width_5),
+                CustomText(
+                  text: optionC,
+                  fontWeight: fontWeight600,
+                  fontSize: font_16,
+                  textColor: AppColors.black,
+                )
+              ],
+            ),
+          ),
+          SizedBox(
+            height: height_10,
+          ),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: margin_10, vertical: margin_10),
+            decoration: BoxDecoration(
+              shape: BoxShape.rectangle,
+              borderRadius: BorderRadius.all(
+                Radius.circular(radius_10),
+              ),
+              color: AppColors.pinkGrade2.withOpacity(0.20),
+            ),
+            child: Row(
+              children: [
+                const CustomTextCircle(
+                  text: 'D',
+                ),
+                SizedBox(width: width_5),
+                CustomText(
+                  text: optionD,
+                  fontWeight: fontWeight600,
+                  fontSize: font_16,
+                  textColor: AppColors.black,
+                )
+              ],
+            ),
+          ),
+          SizedBox(
+            height: height_25,
+          ),
           CustomSolutionTile(
             solutionImagePath: solutionImage,
           ),
@@ -271,10 +372,28 @@ class QuizScreen extends GetView<QuizController> {
     }).toList();
   }
 
-  // Widget _nextStep() {
-  //   return IconButton(
-  //     onPressed: controller.onNextPressed(),
-  //     icon: const Icon(Icons.arrow_forward_ios),
-  //   );
-  // }
+  List<EasyStep> _getStepperData() {
+    return controller.questionsDetails.map<EasyStep>((question) {
+      int stepIndex = controller.questionsDetails.indexOf(question);
+      StepColorState stepColor = question['stepColorState'];
+
+      Color stepColorValue = Colors.grey;
+      if (stepColor == StepColorState.Green) {
+        stepColorValue = Colors.green;
+      } else if (stepColor == StepColorState.Red) {
+        stepColorValue = Colors.red;
+      }
+
+      return EasyStep(
+        customStep: Center(
+          child: CustomText(
+            text: (stepIndex + 1).toString(),
+            fontWeight: fontWeight600,
+            fontSize: font_17,
+            textColor: controller.currentStep >= stepIndex ? AppColors.white : AppColors.blueGrade2,
+          ),
+        ),
+      );
+    }).toList();
+  }
 }

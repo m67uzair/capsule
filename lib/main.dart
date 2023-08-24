@@ -9,6 +9,7 @@ import 'package:capsule/src/features/home/navbar/navbar_binding.dart';
 import 'package:capsule/src/features/quiz/quiz_binding.dart';
 import 'package:capsule/src/features/resullt_analysis/result_analysis_binding.dart';
 import 'package:capsule/src/features/review_answere/review_answer_binding.dart';
+import 'package:capsule/src/features/test/test_binding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -41,9 +42,9 @@ class MyApp extends StatelessWidget {
             ),
           debugShowCheckedModeBanner: false,
           smartManagement: SmartManagement.full,
-          initialRoute: AppRoutes.getQuizRoute(),
+          initialRoute: AppRoutes.getTestCategoryRoute(),
           // !firstLogin ? AppRoutes.getLoginRoute() : AppRoutes.getIntroRoute(),
-          initialBinding: QuizBinding(),
+          initialBinding: TestBinding(),
           // !firstLogin ? LoginBinding() : IntroBinding(),
           getPages: AppRoutes.getPages(),
           onGenerateRoute: (settings) => AppRoutes.generateRoute(settings),

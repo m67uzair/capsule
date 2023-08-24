@@ -13,6 +13,10 @@ import 'package:capsule/src/features/resullt_analysis/result_analysis_binding.da
 import 'package:capsule/src/features/resullt_analysis/result_analysis_screen.dart';
 import 'package:capsule/src/features/review_answere/review_answer_binding.dart';
 import 'package:capsule/src/features/review_answere/review_answer_screen.dart';
+import 'package:capsule/src/features/test/custom_test_selection_screen.dart';
+import 'package:capsule/src/features/test/mock_test_selection_screen.dart';
+import 'package:capsule/src/features/test/test_binding.dart';
+import 'package:capsule/src/features/test/test_category_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/routes/default_route.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
@@ -32,6 +36,9 @@ class AppRoutes {
   static const String resultAnalysis = '/resultAnalysis';
   static const String reviewAnswer = '/reviewAnswer';
   static const String quiz = '/quiz';
+  static const String testCategory = '/testCategory';
+  static const String mockTestSelection = '/mockTestSelection';
+  static const String customTestSelection = '/customTestSelection';
 
   static String getLoginRoute() => login;
 
@@ -52,6 +59,12 @@ class AppRoutes {
   static String getReviewAnswerRoute() => reviewAnswer;
 
   static String getQuizRoute() => quiz;
+
+  static String getTestCategoryRoute() => testCategory;
+
+  static String getMockTestSelectionRoute() => mockTestSelection;
+
+  static String getCustomTestSelectionRoute() => customTestSelection;
 
   static generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -74,6 +87,21 @@ class AppRoutes {
             settings: settings, routeName: getReviewAnswerRoute(), page: () => const ResultAnalysisScreen());
       case quiz:
         return GetPageRoute(settings: settings, routeName: getQuizRoute(), page: () => const QuizScreen());
+      case testCategory:
+        return GetPageRoute(
+            settings: settings, routeName: getTestCategoryRoute(), page: () =>  TestCategoryScreen());
+      case mockTestSelection:
+        return GetPageRoute(
+          settings: settings,
+          routeName: getMockTestSelectionRoute(),
+          page: () => const MockTestSelectionScreen(),
+        );
+      case customTestSelection:
+        return GetPageRoute(
+          settings: settings,
+          routeName: getCustomTestSelectionRoute(),
+          page: () => const CustomTestSelectionScreen(),
+        );
       default:
         return null;
     }
@@ -124,6 +152,21 @@ class AppRoutes {
           name: quiz,
           page: () => const QuizScreen(),
           binding: QuizBinding(),
+        ),
+        GetPage(
+          name: testCategory,
+          page: () =>  TestCategoryScreen(),
+          binding: TestBinding(),
+        ),
+        GetPage(
+          name: mockTestSelection,
+          page: () => const MockTestSelectionScreen(),
+          binding: TestBinding(),
+        ),
+        GetPage(
+          name: customTestSelection,
+          page: () => const CustomTestSelectionScreen(),
+          binding: TestBinding(),
         ),
       ];
 }
