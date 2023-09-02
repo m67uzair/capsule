@@ -50,6 +50,12 @@ dependencies:
   syncfusion_flutter_charts: ^22.2.9
   cached_network_image: ^3.2.3
   easy_stepper: ^0.7.3
+  custom_alert_dialog_box: ^1.0.2
+  linear_progress_bar: ^1.1.0
+  simple_circular_progress_bar: ^1.0.2
+  simple_timer: ^2.0.0
+  percent_indicator: ^4.2.3
+  checkbox_formfield: ^0.2.0
 
 dev_dependencies:
   flutter_test:

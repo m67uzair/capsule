@@ -41,42 +41,42 @@ class CustomText extends StatelessWidget {
   Widget build(BuildContext context) {
     return !isRichText
         ? Text(
-            text,
-            textAlign: textAlign,
-            maxLines: maxLines,
-            overflow: overflow,
-            softWrap: softwrap,
-            style: TextStyle(
-              fontFamily: 'OpenSans',
-              fontSize: fontSize,
-              fontWeight: fontWeight,
-              color: textColor,
-              height: height,
-            ),
-          )
+      text,
+      textAlign: textAlign,
+      maxLines: maxLines,
+      overflow: overflow,
+      softWrap: softwrap,
+      style: TextStyle(
+        fontFamily: 'OpenSans',
+        fontSize: fontSize,
+        fontWeight: fontWeight,
+        color: textColor,
+        height: height,
+      ),
+    )
         : RichText(
-            text: TextSpan(
-              text: text,
+      text: TextSpan(
+        text: text,
+        style: TextStyle(
+          fontFamily: 'OpenSans',
+          fontSize: fontSize,
+          fontWeight: fontWeight,
+          color: textColor,
+          height: height,
+        ),
+        children: <TextSpan>[
+          TextSpan(
+              text: childText,
               style: TextStyle(
                 fontFamily: 'OpenSans',
-                fontSize: fontSize,
-                fontWeight: fontWeight,
-                color: textColor,
+                fontSize: childFontSize,
+                fontWeight: childFontWeight,
+                color: childTextColor,
                 height: height,
               ),
-              children: <TextSpan>[
-                TextSpan(
-                    text: childText,
-                    style: TextStyle(
-                      fontFamily: 'OpenSans',
-                      fontSize: childFontSize,
-                      fontWeight: childFontWeight,
-                      color: childTextColor,
-                      height: height,
-                    ),
-                    recognizer: TapGestureRecognizer()..onTap = () => onTap!()),
-              ],
-            ),
-          );
+              recognizer: TapGestureRecognizer()..onTap = () => onTap!()),
+        ],
+      ),
+    );
   }
 }

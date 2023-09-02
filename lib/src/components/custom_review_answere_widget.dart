@@ -69,7 +69,7 @@ class ReviewQuestionWidget extends StatelessWidget {
                   children: [
                     RectangleIconButton(
                       onPressed: () {},
-                      iconImagePath: ImgAssets.bookMark,
+                      iconImagePath: ImgAssets.bookmark2,
                     ),
                     SizedBox(width: width_5),
                     RectangleIconButton(
@@ -92,7 +92,6 @@ class ReviewQuestionWidget extends StatelessWidget {
                   fontSize: font_16,
                   textColor: AppColors.black,
                   maxLines: 3,
-                  softwrap: true,
                 ),
                 SizedBox(
                   height: height_15,

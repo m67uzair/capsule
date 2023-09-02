@@ -1,4 +1,8 @@
+import 'package:capsule/src/features/auth/login/login_screen.dart';
+import 'package:capsule/src/features/auth/otp/otp_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../../../components/custom_appbar.dart';
 import '../../../components/custom_button.dart';
@@ -59,7 +63,9 @@ class SignupScreen extends StatelessWidget {
                         color: AppColors.white,
                         fontWeight: fontWeight600,
                         font: font_13,
-                        onPress: (){},
+                        onPress: (){
+                          Get.put(OtpScreen());
+                        },
                     ),
                     CustomDivider(
                       height: height_30,
@@ -93,7 +99,10 @@ class SignupScreen extends StatelessWidget {
                             color: AppColors.pinkGrade2,
                             fontWeight: fontWeight600,
                             font: font_12,
-                            onPress: (){}),
+                            onPress: ()
+                            {
+                              Get.put(LoginScreen());
+                            }),
                       ],
                     ),
 

@@ -17,6 +17,33 @@ class ImgAssets {
   static const String userNav = '${assets}user2.png';
   static const String personIllus = '${assets}elluser.png';
   static const String banner = '${assets}backgrnd.png';
+  static const String math = '${assets}mathh.png';
+  static const String physics = '${assets}physicss.png';
+  static const String bio = '${assets}bioo.png';
+  static const String chemistry = '${assets}chemm.png';
+  static const String english = '${assets}engg.png';
+  static const String hindi = '${assets}hindii.png';
+  static const String mcqsIcon = '${assets}mcqs.png';
+  static const String readIcon = '${assets}read.png';
+  static const String reviseIcon = '${assets}revise.png';
+  static const String bookImage = '${assets}book.png';
+  static const String bookmark2 = '${assets}bookmark2.png';
+  static const String transparent = '${assets}trans.png';
+  static const String vid = '${assets}vid.png';
+  static const String userP = '${assets}userp.png';
+  static const String timerP = '${assets}timerp.png';
+  static const String libP = '${assets}libp.png';
+  static const String callP = '${assets}callp.png';
+  static const String termsP = '${assets}termsp.png';
+  static const String likeP = '${assets}likep.png';
+  static const String logoutP = '${assets}logoutp.png';
+  static const String bannerTwo = '${assets}banner2.png';
+  static const String youtube = '${assets}youtube.png';
+  static const String instagram = '${assets}instagram.png';
+  static const String telegram = '${assets}telegram.png';
+  static const String twitter = '${assets}twitter.png';
+  static const String close = '${assets}closesqr.png';
+  static const String logoutText = '${assets}logouttext.png';
   static const String timeTaken = '${assets}timetaken.png';
   static const String accuracy = '${assets}accuracy.png';
   static const String review = '${assets}review.png';
@@ -36,4 +63,5 @@ class ImgAssets {
   static const String mockTestBig = '${assets}mock-test-big.png';
   static const String closCircle = '${assets}close-circle.png';
   static const String edit = '${assets}edit.png';
+
 }

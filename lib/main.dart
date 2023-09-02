@@ -3,6 +3,7 @@ import 'package:capsule/src/features/auth/login/login_binding.dart';
 import 'package:capsule/src/features/auth/otp/otp_binding.dart';
 import 'package:capsule/src/features/auth/profile_info/profile_info_binding.dart';
 import 'package:capsule/src/features/auth/signup/signup_binding.dart';
+import 'package:capsule/src/features/home/edit_profile/edit_profile_binding.dart';
 import 'package:capsule/src/features/home/home/home_binding.dart';
 import 'package:capsule/src/features/home/navbar/navbar.dart';
 import 'package:capsule/src/features/home/navbar/navbar_binding.dart';
@@ -42,9 +43,9 @@ class MyApp extends StatelessWidget {
             ),
           debugShowCheckedModeBanner: false,
           smartManagement: SmartManagement.full,
-          initialRoute: AppRoutes.getTestCategoryRoute(),
+          initialRoute: AppRoutes.getEditProfileRoute(),
           // !firstLogin ? AppRoutes.getLoginRoute() : AppRoutes.getIntroRoute(),
-          initialBinding: TestBinding(),
+          initialBinding: EditProfileBindind(),
           // !firstLogin ? LoginBinding() : IntroBinding(),
           getPages: AppRoutes.getPages(),
           onGenerateRoute: (settings) => AppRoutes.generateRoute(settings),

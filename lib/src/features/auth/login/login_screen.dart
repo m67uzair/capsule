@@ -9,6 +9,8 @@ import 'package:capsule/src/core/constants/assets.dart';
 import 'package:capsule/src/core/constants/dimensions.dart';
 import 'package:capsule/src/core/constants/palette.dart';
 import 'package:capsule/src/core/constants/strings.dart';
+import 'package:capsule/src/features/auth/signup/signup_screen.dart';
+import 'package:capsule/src/features/test/test_category_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../core/constants/font_weight.dart';
@@ -99,7 +101,9 @@ class LoginScreen extends GetView<LoginController> {
                         color: AppColors.pinkGrade2,
                         fontWeight: fontWeight600,
                         font: font_12,
-                        onPress: (){})
+                        onPress: (){
+                          Get.put(TestCategoryScreen());
+                        })
                   ],
                 ),
 
